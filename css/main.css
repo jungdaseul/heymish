@@ -1,0 +1,452 @@
+
+/* http 앞에 꼭 써주기 */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {margin: 0; padding: 0;}
+li {list-style: none;}
+a {text-decoration: none; display: block; color: #777;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+/* 모든 영역에 스타일 설정 */
+header, section, footer {
+    width: 100%;
+    float: left;
+}
+
+/* 모든 영역에 box-sizing 설정 */
+header, section, footer, div {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.img {width: 100%;}
+
+.center_box {
+    width: 1300px;
+    margin: 0 auto;
+}
+
+header .up_area .right_menu {
+    float: right;
+}
+
+header .up_area .right_menu ul li {
+    float: left;
+}
+
+header .up_area .right_menu ul li:hover a {
+    background-color: #cd8f89; 
+}
+
+header .up_area .right_menu ul li a {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+}
+
+header {
+    height: 120px;
+}
+
+header .up_area {
+    height: 40px;
+    width: 100%;
+    background-color: #e4c1be; 
+}
+
+header .down_area .logo {
+    float: left;
+    width: 140px;
+    margin-top: 10px;
+}
+
+header .down_area nav {
+    float: right;
+    z-index: 11;
+    position: relative;
+}
+
+header .down_area nav > ul > li {
+    float: left;
+    padding: 20px 0;
+}
+
+header .down_area nav > ul > li > a {
+    padding: 10px 0;
+    margin-right: 70px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    /* 자식객체 :after의 위치 설정할 때 기준이 a태그임 */
+    position: relative;
+    /* 마우스 오버할때 밑줄이 글자길이만큼 그려짐 */
+    display: inline-block;
+}
+
+header .down_area nav > ul > li > a:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: #e4c1be;
+    left: 50%;
+    bottom: 0px;
+    transition: all 0.5s;
+}
+
+/* li한테 :hover을 붙이면 서브메뉴로 마우스가 가도 있음*/
+header .down_area nav > ul > li > a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+header .down_area nav .sub {
+    width: 140px;
+    background-color: white;
+    border-top: 3px solid #e4c1be;
+    margin-top: 20px; 
+    /* 마진탑은 내가 따로 집어넣음 */
+    /* display: none; */
+    /* position: absolute; */
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    /* 애니메이션 */
+    transition: all 0.5s;
+}
+
+header .down_area nav .sub li a {
+    padding: 12px;
+    font-size: 16px;
+    border-bottom: 2px solid #ddd;
+}
+
+header .down_area nav ul li:hover .sub {
+     display: block; 
+} 
+
+/* 선생님은 nav > ul > li:hover .sub로 적음 */
+
+header .down_area nav .sub li a:hover {
+    background-color: #efefef;
+}
+
+header .down_area nav > ul > li:hover .sub {
+    height: auto;
+    opacity: 1;
+}
+
+/* 1. sub -> display:none; 
+    nav > ul > li:hover .sub -> display:block;
+    애니메이션 안됨
+
+2. sub -> opacity:0, visibility:hidden;(숨김)
+            transitional 0.5s 
+    nav > ul > li:hover .sub -> opacity:1, visibility:visible(보임)
+    서서히 나타나는 애니메이션 */
+
+section {
+    padding-top: 80px;
+    padding-bottom: 90px;
+}
+
+section#visual {
+    padding: 0;
+    position: relative;
+    z-index: 10;
+}
+/* 앞에 section 생략해도됨 */
+/* 형제 객체끼리 작성해야 하는 명령어 float:left; z-index(순서) */
+
+section#banner .movie {
+    width: 670px;
+    height: 380px;
+    margin-right: 30px;
+    float: left;
+    background-color: #111;
+}
+
+section#banner .banner_right {
+    width: 600px;
+    height: 380px;
+    float: left;
+}
+
+section#banner .banner_right ul li {
+    float: left;
+    width: 285px;
+    height: 175px;
+    margin-right: 30px;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+}
+section#banner .banner_right ul li a {
+    color: #fff;
+    text-shadow: 1px 1px 2px #888;
+}
+
+section#banner .banner_right ul li:first-child {
+    background-color: #d5a19c;
+    background-image: url(../img/heymish.png);
+    margin-bottom: 30px;
+    background-position-y: 50px;
+    background-position-x: 15px;
+}
+
+section#banner .banner_right ul li:nth-child(2) {
+    background-color: #eacfcc;
+    background-image: url(../img/heymish.png);
+    margin-right: 0;
+    background-position-y: 50px;
+    background-position-x: 15px;
+}
+
+section#banner .banner_right ul li:nth-child(3) {
+    background-image: url(../img/Q&A.png);
+}
+
+section#banner .banner_right ul li:last-child {
+    background-image: url(../img/shop.png);
+    margin-right: 0;
+}
+
+section#banner .banner_right ul li .des h3 {
+    font-size: 25px;
+    margin-left: 25px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+section#banner .banner_right ul li .des p {
+    font-size: 17px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+section#banner .banner_right ul li img {
+    margin-left: 20px;
+}
+
+section#list {
+    height: 630px;
+    /* 높이값 써도되고 안써도됨 */
+    background-color: #eacfcc;
+    /* 배경이미지를 고정시킴, 현재는 쓸모가 있는가... */
+    background-attachment: fixed;
+}
+
+section#list h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+section#list .h1_img {
+    float: left;
+}
+
+section#list .list_box .crown img {
+    width: 50px;
+    height: 50px;
+    margin-left: 95px;
+}
+
+section#list .list_box ul li {
+    float: left;
+    margin-right: 48px;
+    margin-top: 56px;
+    width: 250px;
+}
+
+section#list .list_box ul li:last-child {
+    margin-right: 0;
+}
+
+section#list .list_box ul li:first-child {
+    margin-top: 0;
+    margin-left: 77px;
+}
+
+section#list .list_box ul li .photo img {
+    width: 55%;
+    transform: scale(1,1);
+    transition: all 0.5s;
+    margin-top: 50px;
+}
+
+section#list .list_box ul li:hover .photo img {
+    transform: scale(1.1,1.1);
+}
+
+section#list .list_box ul li .photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+}
+
+section#list .list_box ul li p {
+    width: 130px;
+    height: 45px;
+    text-align: center;
+    border-radius: 30px;
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px #999;
+}
+
+section#list .list_box ul li h3 {
+    color: #fff;
+    font-size: 33px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 5px #999;
+}
+
+section#list .list_box ul li h3:after {
+    content: "st";
+    font-size: 25px;
+    margin-left: 5px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px #999;
+}
+
+section#event a {
+    float: left;
+}
+
+section#event .e_right a {
+    margin-left: 26px;
+}
+
+section#event .e_right .event1 a {
+    margin-bottom: 26px;
+}
+
+section#notice .center_box > div {
+    width: 630px;
+    float: left;
+}
+
+section#notice hr {
+    width: 630px;
+    margin-bottom: 20px;
+}
+
+section#notice .n_left {
+    margin-right: 40px;
+    /* 채용공고랑 가로로 정렬 */
+    float: left;
+}
+
+section#notice .title {
+    width: 100%;
+    /* .title과 .con1 영역을 분리함 */
+    float: left;
+}
+
+section#notice .n_left h1 {
+    /* 더하기 버튼 a태그와 가로로 정렬 */
+    float: left;
+    /* 자식객체 글자가 줄 바꿈 되지 않도록함 */
+    white-space: nowrap;
+}
+
+section#notice .n_left a {
+    /* h1태그와 가로로 정렬 */
+    float: right;
+}
+
+section#notice .n_left .con1 {
+    /* width와 con1 분리함 */
+    float: left;
+    width: 100%;
+}
+
+section#notice .n_left .con1 ul li {
+    padding: 35px 0 40px;
+    border-bottom: 1px solid #efefef;
+}
+
+section#notice .n_left .con1 ul li p {
+    float: left;
+}
+
+section#notice .n_left .con1 ul li span {
+    float: right;
+    display: block;
+}
+
+section#notice .n_right h1 {
+    float: left;
+}
+
+section#notice .n_right a {
+    float: right;
+}
+
+footer {
+    padding: 43px 0;
+    background-color: #f8f8f8;
+}
+
+footer .f_logo {
+    width: 120px;
+    float: left;
+    margin-right: 100px;
+}
+
+footer .addr {
+    float: left;
+}
+
+footer .addr .info ul li {
+    float: left;
+}
+
+footer .addr .info ul li a:after {
+    content: "|";
+    margin-left: 20px;
+}
+
+footer .addr .info ul li a {
+    font-size: 14px;
+    padding: 10px 20px;
+    padding-left: 0;
+}
+
+footer .addr address {
+    color: #999;
+    font-size: 14px;
+    /* 기울어진 글자 기울임 없앰 */
+    font-style: normal;
+    /* .info영역의 li에 적용은 float:left;를 address에서 적용 안되게 함 */
+    clear: both;   
+}
+
+footer .sns {
+    /* f_logo와 .addr 영역과 나란히 가로로 나열 */
+    float: right;
+}
+
+footer .sns ul li {
+    float: left;
+}
+
+footer .sns ul li a img {
+    width: 40px;
+    float: left;
+    margin-right: 20px;
+} 
+
